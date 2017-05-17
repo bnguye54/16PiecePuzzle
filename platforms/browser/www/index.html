@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' https://fakenewsspotter.appspot.com http://localhost:8008 http://127.0.0.1:8008 'unsafe-inline' 'unsafe-eval'; ">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="css/myapp.css" rel="stylesheet" type="text/css" />
+        <link href="css/stupid.css" rel="stylesheet" type="text/css"/>
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
+        <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <title>16 Tile Game with Sloth | CMPS 121</title>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/vue.js"></script>
+        <script type="text/javascript" src="js/randomString.js"></script>
+    
+    </head>
+<body>
+    <div id="vue-div" class="center app">
+        <img id ="backgroundIMG" src ="sloth.jpg">
+        <div class="container center chessboard">
+            <table>
+                <tr v-for="i in [0, 1, 2, 3]">
+                    <td v-for="j in [0, 1, 2, 3]"
+                    v-on:click="shuffle((i +',' + j), i, j)" 
+                     v-bind:class="{red: (j+i)%2==0, black: 4*i+j == 15}"
+                    class="center" 
+                    v-bind:id="i +',' + j"> 
+                    ${board[4*i+j]}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="container center resetbutton" id= "buttonsDiv">
+             <script type="text/javascript" src="js/index.js"></script>
+            <button v-on:click="reset" id = "resetButton">Reset</button>
+            <button v-on:click="scramble(4,4)" id = "scrambleButton">Scramble</button>
+
+        </div>
+         <h2 id="title"> Brain's HW 5</h2>
+       
+    </div>
+
+   
+</body>   
+<script type="text/javascript" src="js/index.js"></script>
+
+</html>
